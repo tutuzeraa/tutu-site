@@ -4,54 +4,72 @@ import { SITE_TITLE } from '../consts';
 ---
 
 <header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-            <HeaderLink href="/">Home</HeaderLink>
+    <nav>
+        <h2><a href="/">{SITE_TITLE}</a></h2>
+        <div class="internal-links">
+            <HeaderLink href="/">whoami</HeaderLink>
             <HeaderLink href="/projects">Projects</HeaderLink>
-			<HeaderLink href="/blog">Cestari Writings</HeaderLink>
-			<HeaderLink href="/about">whoami</HeaderLink>
-		</div>
-	</nav>
+            <HeaderLink href="/blog">Cestari Writings</HeaderLink>
+            <HeaderLink href="/random">random</HeaderLink>
+        </div>
+    </nav>
 </header>
-<style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+<style>
+    header {
+        margin: 0;
+        padding: 0 1em;
+        /* Darker background matching terminal theme */
+        background: var(--background); /* #1A1A1A from your :root */
+        /* Remove shadow for minimalism */
+    }
+
+    h2 {
+        margin: 0;
+        font-size: 1em;
+    }
+
+    h2 a,
+    h2 a.active {
+        /* Use text color from palette */
+        color: var(--text); /* #00FF00 */
+        text-decoration: none;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    nav a {
+        padding: 1em 0.5em;
+        /* Use muted color for default state */
+        color: var(--muted); /* #666666 */
+        border-bottom: 2px solid transparent; /* Thinner border */
+        text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a.active {
+        /* Highlight with accent color on hover/active */
+        color: var(--accent); /* #FFB000 */
+        border-bottom-color: var(--accent);
+    }
+
+    .internal-links {
+        display: flex;
+        gap: 0.5em; /* Minimal spacing between links */
+    }
+
+    @media (max-width: 720px) {
+        nav {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .internal-links {
+            flex-direction: column;
+            gap: 0.25em;
+        }
+    }
 </style>
